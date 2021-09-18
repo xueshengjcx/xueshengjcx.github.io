@@ -90,13 +90,13 @@
             var year="";
             mydate=new Date();
             myweekday=mydate.getDay();
-            mymonth=mydate.getMonth()+1;
+            mymonth=mydate.getMonth();
             myday= mydate.getDate();
             myyear= mydate.getYear();
             year=(myyear > 200) ? myyear : 1900 + myyear;
             var date = new Date(Date.UTC(year, mymonth, myday));
             var result = date.toISOString().split('T')[0];
-            document.write(date);
+            document.write(result);
         </script>
         <SCRIPT language=javascript>
             function CurentTime(){  
