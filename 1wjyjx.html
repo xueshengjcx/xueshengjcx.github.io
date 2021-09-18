@@ -100,15 +100,12 @@
         <SCRIPT language=javascript>
             function CurentTime(){  
                 var now = new Date();  
-                var hh = now.getHours();  
-                var mm = now.getMinutes();  
-                var ss = now.getTime() % 60000;  
-                ss = (ss - (ss % 1000)) / 1000;  
-                var clock = hh+':';   if (mm < 10) clock += '0';   clock += mm+':';    if (ss < 10) clock += '0';   clock += ss;  return(clock);  
-            }  
-            function refreshCalendarClock(){  document.all.calendarClock4.innerHTML = CurentTime();  }  
-            document.write('<font id="calendarClock4"></font>'); 
-            setInterval('refreshCalendarClock()',540000);
+                var hh = now.getHours() < 10 ? "0" + now.getHours() : now.getHours();
+                var mm = now.getMinutes(); < 10? "0" + now.get<inutes() : now.getMinutes();
+                var ss = now.getSeconds() < 10? "0" + now.getSeconds() : now.getSeconds();
+                document.write(hh+":"+mm+":"ss); 
+            }   
+
         </SCRIPT>
     </div>
 <script>
