@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="en">
@@ -61,25 +60,28 @@
 <body>
 <div id="div" style="padding: 0rem 3rem;">
     <div class="input">姓名
-        <font id="lxm" class="right"></font>
+        <font id="lxm" class="right">123</font>
     </div>
     <div class="input">学号
-        <font id="lxh" class="right"></font>
+        <font id="lxh" class="right">123</font>
     </div>
     <div class="input">学院
-        <font id="lxy" class="right"></font>
+        <font id="lxy" class="right">123</font>
     </div>
     <div class="input">年级
-        <font id="lnj" class="right"></font>
+        <font id="lnj" class="right">123</font>
     </div>
     <div class="input">班级
-        <font id="lbj" class="right"></font>
+        <font id="lbj" class="right">123</font>
     </div>
 
     <div class="pic">
         <font class="picTitle">出校<br/>已报备</font>
     </div>
-    <div class="time"></div>
+    <div class="time"><span id="cg">2016-12-21 12:00:00</span>
+<script>
+setInterval("cg.innerHTML=new Date().toLocaleString()",1000);
+</script></div>
 </div>
 <script>
   $("#ok").click(function () {
