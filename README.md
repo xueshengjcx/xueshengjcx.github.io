@@ -59,16 +59,7 @@
     }
 </style>
 <body>
-<div style="font-size: 3rem;" id="form">
-    姓名：<input id="xm"/><br/>
-    学号：<input id="xh"/><br/>
-    学院：<input id="xy"/><br/>
-    年级：<input id="nj"/><br/>
-    班级：<input id="bj"/><br/>
-    时间：<input value="2020-20-20 18:11:48" id="sj"/><br/>
-    <button id="ok">确定</button>
-</div>
-<div id="div" class="hidden" style="padding: 0rem 3rem;">
+<div id="div" style="padding: 0rem 3rem;">
     <div class="input">姓名
         <font id="lxm" class="right"></font>
     </div>
