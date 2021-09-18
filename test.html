@@ -99,19 +99,14 @@
             var result = date.toISOString().split('T')[0];
             document.write(result);
         </script>
-        <SCRIPT language=javascript>
-            function CurentTime(){  
-                var now = new Date();  
-                var hh = now.getHours();  
-                var mm = now.getMinutes();  
-                var ss = now.getTime() % 60000;  
-                ss = (ss - (ss % 1000)) / 1000;  
-                var clock = hh+':';   if (mm < 10) clock += '0';   clock += mm+':';    if (ss < 10) clock += '0';   clock += ss;  return(clock);  
-            }  
-            function refreshCalendarClock(){  document.all.calendarClock4.innerHTML = CurentTime();  }  
-            document.write('<font id="calendarClock4"></font>'); 
-            setInterval('refreshCalendarClock()',540000);
-        </SCRIPT>
+        <script language="JavaScript" type="text/JavaScript">
+            var now=new Date();
+            hh = now.getHours() < 10 ? "0" + now.getHours() : now.getHours();
+            mm = now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
+            ss = now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds();
+            var current = hh+":"+mm+":"+ss
+            document.write(current);
+        </script>
     </div>
 <script>
   $("#ok").click(function () {
