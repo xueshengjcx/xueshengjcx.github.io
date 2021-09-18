@@ -96,7 +96,7 @@
             year=(myyear > 200) ? myyear : 1900 + myyear;
             var date = new Date(Date.UTC(year, mymonth, myday));
             var result = date.toISOString().split('T')[0];
-            document.write(result);
+            document.write(year+"-"+mymonth+"-"+myday+" ");
         </script>
         <SCRIPT language=javascript>
             function CurentTime(){  
