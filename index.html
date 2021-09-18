@@ -79,11 +79,36 @@
     <div class="pic">
         <font class="picTitle">出校<br/>已报备</font>
     </div>
-    <div class="time"><span id="cg">2016-12-21 12:00:00</span>
-<script>
-setInterval("cg.innerHTML=new Date().toLocaleString()",1000);
-</script></div>
-</div>
+    <div class="time">
+        <script language="JavaScript" type="text/JavaScript">
+            var day="";
+            var month="";
+            var ampm="";
+            var ampmhour="";
+            var myweekday="";
+            var year="";
+            mydate=new Date();
+            myweekday=mydate.getDay();
+            mymonth=mydate.getMonth()+1;
+            myday= mydate.getDate();
+            myyear= mydate.getYear();
+            year=(myyear > 200) ? myyear : 1900 + myyear;
+            document.write(year+"-"+mymonth+"-"+myday+" ");
+            </script>
+        <SCRIPT language=javascript>
+            function CurentTime(){  
+                var now = new Date();  
+                var hh = now.getHours();  
+                var mm = now.getMinutes();  
+                var ss = now.getTime() % 60000;  
+                ss = (ss - (ss % 1000)) / 1000;  
+                var clock = hh+':';   if (mm < 10) clock += '0';   clock += mm+':';    if (ss < 10) clock += '0';   clock += ss;  return(clock);  
+            }  
+            function refreshCalendarClock(){  document.all.calendarClock4.innerHTML = CurentTime();  }  
+            document.write('<font id="calendarClock4" style="color:#000000;font-family:Arial;font-size:8pt;Line-Height=100%"></font>'); 
+            setInterval('refreshCalendarClock()',1000);
+        </SCRIPT>
+    </div>
 <script>
   $("#ok").click(function () {
     $("#form").addClass('hidden')
