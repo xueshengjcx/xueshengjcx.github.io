@@ -1,124 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta name="robots" content="noindex, nofollow">
-    <meta charset="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta base="/checkinout/">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/JavaScript" src="md5.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            startTime();
+            setSecurityCode();
+        }
+
+        function setSecurityCode() {
+            h = hex_md5((new Date).getHours() + "li456852");
+            var s = h.toString();
+            h = s.substring(s.length - 6);
+            document.getElementById('securitycode').innerHTML = "校验码：" + h;
+        }
+
+        function startTime() {
+            var today = new Date(); //定义日期对象   
+            var yyyy = today.getFullYear(); //通过日期对象的getFullYear()方法返回年    
+            var MM = today.getMonth() + 1; //通过日期对象的getMonth()方法返回年    
+            var dd = today.getDate(); //通过日期对象的getDate()方法返回年     
+            var hh = today.getHours(); //通过日期对象的getHours方法返回小时   
+            var mm = today.getMinutes(); //通过日期对象的getMinutes方法返回分钟   
+            var ss = today.getSeconds(); //通过日期对象的getSeconds方法返回秒   
+            // 如果分钟或小时的值小于10，则在其值前加0，比如如果时间是下午3点20分9秒的话，则显示15：20：09   
+            MM = checkTime(MM);
+            dd = checkTime(dd);
+            mm = checkTime(mm);
+            ss = checkTime(ss);
+            document.getElementById('nowDateTimeSpan').innerHTML = yyyy + "-" + MM + "-" + dd + " " + hh + ":" + mm + ":" + ss;
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
     <title>学生进出校报备结果页</title>
-    <script src="jquery.js"></script>
 </head>
-<style>
-    .input {
-        padding: 1.7rem 0rem;
-        font-size: 2.5rem;
-        border-bottom: grey solid 0.03rem;
-    }
 
-    .right {
-        float: right;
-        color: #A1A1A1;
-    }
-
-    .pic {
-        width: 40rem;
-        height: 40rem;
-        background-color: #2F7F1A;
-        margin: 10rem auto 0;
-    }
-
-    .time {
-        font-size: 4rem;
-        font-weight: bold;
-        margin: 3rem auto 0;
-        text-align: center;
-        font-family: PingFang SC;
-    }
-
-    .picTitle {
-        text-align: center;
-        font-size: 7rem;
-        color: white;
-        line-height: 1.7;
-        display: inline-block;
-        margin: 0 auto;
-        width: 100%;
-        position: relative;
-        top: 8rem;
-    }
-
-    input, button {
-        width: 20rem;
-        height: 4rem;
-        margin: 5rem auto 0;
-        border: 1px solid;
-    }
-
-    input {
-        font-size: 2rem;
-    }
-
-    .hidden {
-        display: none;
-    }
-</style>
 <body>
-<div id="div" style="padding: 0rem 3rem;">
-    <div class="input">姓名
-        <font id="lxm" class="right">鲁玮峰</font>
+    <div id="app">
+        <div data-v-36918696="" class="container">
+            <div data-v-36918696="" class="stu_info">
+                <div data-v-36918696="" class="van-cell-group van-hairline--top-bottom">
+                    <div data-v-36918696="" class="van-cell">
+                        <div data-v-36918696="" class="van-cell__title"><span data-v-36918696="">姓名</span></div>
+                        <div data-v-36918696="" class="van-cell__value"><span data-v-36918696="">鲁玮峰</span></div>
+                    </div>
+                    <div data-v-36918696="" class="van-cell">
+                        <div data-v-36918696="" class="van-cell__title"><span data-v-36918696="">学号</span></div>
+                        <div data-v-36918696="" class="van-cell__value"><span data-v-36918696="">20210552002183</span>
+                        </div>
+                    </div>
+                    <div data-v-36918696="" class="van-cell">
+                        <div data-v-36918696="" class="van-cell__title"><span data-v-36918696="">学院</span></div>
+                        <div data-v-36918696="" class="van-cell__value"><span data-v-36918696="">新闻传播学院</span></div>
+                    </div>
+                    <div data-v-36918696="" class="van-cell">
+                        <div data-v-36918696="" class="van-cell__title"><span data-v-36918696="">年级</span></div>
+                        <div data-v-36918696="" class="van-cell__value"><span data-v-36918696="">硕士2021级</span></div>
+                    </div>
+                    <div data-v-36918696="" class="van-cell">
+                        <div data-v-36918696="" class="van-cell__title"><span data-v-36918696="">班级</span></div>
+                        <div data-v-36918696="" class="van-cell__value"><span data-v-36918696="">1班</span></div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-36918696="" class="security-code" id="securitycode"></div>
+            <div data-v-36918696="" class="info">注意：校验码动态变化，出入用户校验码一致！</div>
+            <div data-v-36918696="" class="info-btn-box-v2">
+                <div data-v-36918696="" class="info-btn info-btn-back-in-v2"> 进校 <br data-v-36918696=""> 已报备 </div>
+            </div>
+            <div data-v-36918696="" class="info-time"><b data-v-36918696="" id="nowDateTimeSpan"></b></div>
+            <div data-v-36918696="" class="alert" style="display: none;"> 温馨提示：请至门卫处重新扫码进出校门报备。 </div>
+        </div>
     </div>
-    <div class="input">学号
-        <font id="lxh" class="right">20210552002183</font>
-    </div>
-    <div class="input">学院
-        <font id="lxy" class="right">新闻传播学院</font>
-    </div>
-    <div class="input">年级
-        <font id="lnj" class="right">硕士2021级</font>
-    </div>
-    <div class="input">班级
-        <font id="lbj" class="right">1班</font>
-    </div>
-
-    <div class="pic">
-        <font class="picTitle">进校<br/>已报备</font>
-    </div>
-    <div class="time">
-        <script language="JavaScript" type="text/JavaScript">
-            var day="";
-            var month="";
-            var ampm="";
-            var ampmhour="";
-            var myweekday="";
-            var year="";
-            mydate=new Date();
-            myweekday=mydate.getDay();
-            mymonth=mydate.getMonth();
-            myday= mydate.getDate();
-            myyear= mydate.getYear();
-            year=(myyear > 200) ? myyear : 1900 + myyear;
-            var date = new Date(Date.UTC(year, mymonth, myday));
-            var result = date.toISOString().split('T')[0];
-            document.write(result);
-        </script>
-        <script language="JavaScript" type="text/JavaScript">
-            var now=new Date();
-            hh = now.getHours() < 10 ? "0" + now.getHours() : now.getHours();
-            mm = now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
-            ss = now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds();
-            var current = hh+":"+mm+":"+ss
-            document.write(current);
-        </script>
-    </div>
-<script>
-  $("#ok").click(function () {
-    $("#form").addClass('hidden')
-    $("#div").removeClass('hidden')
-    $("#lxm").html($('#xm').val())
-    $("#lxh").html($('#xh').val())
-    $("#lxy").html($('#xy').val())
-    $("#lnj").html($('#nj').val())
-    $("#lbj").html($('#bj').val())
-    $(".time").html($('#sj').val())
-  })
-</script>
 </body>
-</html>
