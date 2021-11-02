@@ -232,7 +232,7 @@ function binl2hex(binarray) {
  * Convert an array of little-endian words to a base-64 string
  */
 function binl2b64(binarray) {
-    var tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    var tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/";
     var str = "";
     for (var i = 0; i < binarray.length * 4; i += 3) {
         var triplet = (((binarray[i >> 2] >> 8 * (i % 4)) & 0xFF) << 16) |
