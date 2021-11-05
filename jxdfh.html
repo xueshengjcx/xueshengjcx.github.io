@@ -15,11 +15,11 @@
             startTime();
             setSecurityCode();
         }
-
+        
         function setSecurityCode() {
-            h = hex_md5((new Date).getDate() + "li456852");
+            h = hex_md5((new Date).getHours() + "li456852");
             var s = h.toString();
-            h = t.substring(t.length - 6).toUpperCase();
+            h = s.substring(s.length - 6);
             document.getElementById('securitycode').innerHTML = "校验码：" + h;
         }
 
