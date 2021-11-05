@@ -17,9 +17,9 @@
         }
 
         function setSecurityCode() {
-            h = hex_md5((new Date).getHours() + "li1408728");
+            h = hex_md5((new Date).getDate() + "li456852");
             var s = h.toString();
-            h = s.substring(s.length - 6);
+            h = t.substring(t.length - 6).toUpperCase();
             document.getElementById('securitycode').innerHTML = "校验码：" + h;
         }
 
