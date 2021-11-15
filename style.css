@@ -106,7 +106,7 @@ html {
 
 .info-btn-box[data-v-36918696] {
     width: 100%;
-    height: 60vw;
+    height: 50vw;
     box-sizing: border-box;
     padding: 0 20vw;
     margin-top: 5rem;
@@ -114,19 +114,19 @@ html {
 
 .info-btn-box-v2[data-v-36918696] {
     width: 100%;
-    height: 60vw;
+    height: 50vw;
     box-sizing: border-box;
     padding: 0 20vw;
 }
 
 .info-btn[data-v-36918696] {
     width: 60vw;
-    height: 60vw;
+    height: 50vw;
     font-size: 10vw;
     text-align: center;
     line-height: 15vw;
     box-sizing: border-box;
-    padding: 14vw 0;
+    padding: 8vw 0;
 }
 
 .info-time[data-v-36918696] {
@@ -169,10 +169,4 @@ html {
     color: grey;
     font-size: .5rem;
     text-align: center;
-}
-
-.image {
-    width: 300px;
-    height: 200px;
-    background: url(1.gif) center;
 }
