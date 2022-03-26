@@ -64,7 +64,7 @@ function animate() {
     requestAnimationFrame(animate)
     renderer.render(scene, camera)
     const img = document.querySelector('#i')
-	img.src = renderer.domElement.toDataURL()
+	img.src = renderer.domElement.toDataURL('image/png')
     if (a) {
         // console.log(a&&a.children[2])
         // a.children[2].rotation.y+=0.01
