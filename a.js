@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {GLTFLoader} from './GLTFLoader.js'
+import {GLTFLoader} from 'GLTFLoader.js'
 
 const loader = new GLTFLoader();
 const scene = new THREE.Scene()
