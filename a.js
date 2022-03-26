@@ -4,7 +4,8 @@ import {GLTFLoader} from './node_modules/three/examples/jsm/loaders/GLTFLoader.j
 const loader = new GLTFLoader();
 const scene = new THREE.Scene()
 const cvs = document.querySelector('#cvs')
-
+// const n = cvs.getContext('2d')
+// n.globalAlpha = 0.5;
 const camera = new THREE.PerspectiveCamera(
     80, // FOV
     window.innerWidth/window.innerHeight,
@@ -27,17 +28,19 @@ var a = ''
 // Load a glTF resource
 loader.load(
 	// resource URL
-	'./main.glb',
+	'main.glb',
 	// called when the resource is loaded
 	function ( gltf ) {
+		a = gltf.scene;
         console.log(gltf.scene.children)
-        gltf.scene.children[2].material.opacity = 0.5; // tou ming du
-        gltf.scene.children[2].material.transparent = true;
+        a.children[2].material.opacity = 1; // tou ming du
+        a.children[2].material.transparent = false;
+		// a.children[2].material.color.set('hsl(0, 0%, 50%)')
 
 		// scene.add( gltf.scene);
 		pivot.add(gltf.scene)
-		a = gltf.scene;
-		a.position.set(0,0,3) // Where
+		
+		a.position.set(0,0,5) // rao na zhuan
 
         console.log(gltf.asset)
         renderer.render(scene, camera)
@@ -60,12 +63,13 @@ scene.add(light)
 function animate() {
     requestAnimationFrame(animate)
     renderer.render(scene, camera)
-    
+    const img = document.querySelector('#i')
+	img.src = renderer.domElement.toDataURL()
     if (a) {
         // console.log(a&&a.children[2])
         // a.children[2].rotation.y+=0.01
 		// a.children[2].rotation.z+=0.01
-		pivot.rotation.y += 0.008 // speed
+		pivot.rotation.y += 0.015 // speed
     }
 }
 
