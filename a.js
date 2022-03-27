@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 )
-camera.position.set(0,0,50) // CAMERA
+camera.position.set(0,0,45) // CAMERA
 scene.add(camera)
 
 const renderer = new THREE.WebGL1Renderer({canvas:cvs})
@@ -33,14 +33,14 @@ loader.load(
 	function ( gltf ) {
 		a = gltf.scene;
         console.log(gltf.scene.children)
-        a.children[2].material.opacity = 1; // tou ming du
-        a.children[2].material.transparent = false;
+        //a.children[2].material.opacity = 1;
+        //a.children[2].material.transparent = false;
 		// a.children[2].material.color.set('hsl(0, 0%, 50%)')
 
 		// scene.add( gltf.scene);
 		pivot.add(gltf.scene)
 		
-		a.position.set(0,0,5) // rao na zhuan
+		a.position.set(0,0,2) // Where
 
         console.log(gltf.asset)
         renderer.render(scene, camera)
@@ -63,13 +63,13 @@ scene.add(light)
 function animate() {
     requestAnimationFrame(animate)
     renderer.render(scene, camera)
-    const img = document.querySelector('#i')
-	img.src = renderer.domElement.toDataURL('image/png')
+    // const img = document.querySelector('#i')
+	// img.src = renderer.domElement.toDataURL()
     if (a) {
         // console.log(a&&a.children[2])
         // a.children[2].rotation.y+=0.01
 		// a.children[2].rotation.z+=0.01
-		pivot.rotation.y += 0.015 // speed
+		pivot.rotation.y += 0.01 // speed
     }
 }
 
