@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="noindex, nofollow">
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"
+        />
+        <meta base="/checkinout/" />
+        <script type="importmap">
+            {
+                "imports": {
+                "three": "https://unpkg.com/three@0.139/build/three.module.js"
+                }
+            }
+            </script>
+        <script src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+        <link rel="icon" href="https://xueshengjcx.github.io/favicon.ico" />
+        <script src="https://threejs.org/build/three.js"></script>
+        <script type="text/JavaScript" src="md5.js"></script>
+        <script defer type="module" src="a.js"></script>
+        <title>学生进出校报备结果页</title>
+        <!-- link href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-08d50c9b.d6212021.css" rel="prefetch" -->
+        <!-- link href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-1e842fd2.2475ee68.css" rel="prefetch" -->
+        <link href="chunk-2b57a0f5.701813f6.css" rel="prefetch" />
+        <!-- <link href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-54a83ea8.70ac52c1.css" rel="prefetch" /> -->
+        <link href="https://xueshengjcx.github.io/chunk-70ebb6a5.d6b25601.css" rel="prefetch" />
+        <!-- <link href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-732f3e7e.e7e4cc36.css" rel="prefetch" />
+        <link href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-98800c54.6e489474.css" rel="prefetch" />
+        <link href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-b8c82dc2.9995fda4.css" rel="prefetch" />
+        <link href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-b8c91d32.14bc1389.css" rel="prefetch" />
+        <link href="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-08d50c9b.826e804b.js" rel="prefetch" />
+        <link href="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-1e842fd2.45e066cd.js" rel="prefetch" /> -->
+        <link href="chunk-2b57a0f5.143a51b6.js" rel="prefetch" />
+        <!-- <link href="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-54a83ea8.d1878aba.js" rel="prefetch" /> -->
+        <link href="chunk-70ebb6a5.80c82f50.js" rel="prefetch" />
+        <!-- <link href="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-732f3e7e.dcbdc83e.js" rel="prefetch" />
+        <link href="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-98800c54.85484d67.js" rel="prefetch" />
+        <link href="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-b8c82dc2.32fd7079.js" rel="prefetch" />
+        <link href="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-b8c91d32.32e64f39.js" rel="prefetch" /> -->
+        <link
+            href="chunk-vendors.4adda8f1.css"
+            rel="preload"
+            as="style"
+        />
+        <link href="mobile.f88ae62e.css" rel="preload" as="style" />
+        <link
+            href="chunk-vendors.1a916d91.js"
+            rel="preload"
+            as="script"
+        />
+        <link href="chunk-vendors.4adda8f1.css" rel="stylesheet" />
+        <link href="mobile.f88ae62e.css" rel="stylesheet" />
+        <!-- <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-2b57a0f5.701813f6.css"
+        /> -->
+        <!-- <script
+            charset="utf-8"
+            src="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-2b57a0f5.143a51b6.js"
+        ></script> -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://xueshengjcx.github.io/chunk-70ebb6a5.d6b25601.css"
+        />
+        <script
+            charset="utf-8"
+            src="chunk-70ebb6a5.80c82f50.js"
+        ></script>
+
+        <script type="text/javascript">
+        window.onload = function() {
+            startTime();
+            setSecurityCode();
+        }
+        
+        function setSecurityCode() {
+            h = hex_md5((new Date).getDate() + "asdflkjlkjasdf");
+            var s = h.toString();
+            h = s.substring(s.length - 6).toUpperCase();
+            document.getElementById('securitycode').innerHTML = "校验码：" + h;
+        }
+
+        function startTime() {
+            var today = new Date(); //定义日期对象   
+            var yyyy = today.getFullYear(); //通过日期对象的getFullYear()方法返回年    
+            var MM = today.getMonth() + 1; //通过日期对象的getMonth()方法返回年    
+            var dd = today.getDate(); //通过日期对象的getDate()方法返回年     
+            var hh = today.getHours(); //通过日期对象的getHours方法返回小时   
+            var mm = today.getMinutes(); //通过日期对象的getMinutes方法返回分钟   
+            var ss = today.getSeconds(); //通过日期对象的getSeconds方法返回秒   
+            // 如果分钟或小时的值小于10，则在其值前加0，比如如果时间是下午3点20分9秒的话，则显示15：20：09   
+            MM = checkTime(MM);
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            ss = checkTime(ss);
+            document.getElementById('nowDateTimeSpan').innerHTML = yyyy + "-" + MM + "-" + dd + " " + hh + ":" + mm + ":" + ss;
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+    </head>
+    <body>
+        <div id="app">
+            <div data-v-117b961c="" class="container">
+                <div data-v-117b961c="" class="security-code" id="securitycode"></div>
+                <div data-v-117b961c="" class="info">注意：校验码动态变化，出入用户校验码一致！</div>
+                <div data-v-117b961c="" class="info-btn-box" style="position:relative; z-index:3">
+                    <!-- 放二维码的 --><img
+                        data-v-117b961c=""
+                        src="wjx.png"
+                        class="info-btn"
+                        style="display: inline-block;"></div>
+                <div data-v-117b961c="" class="info-btn-box" style="position:relative; z-index:1">
+                    <div data-v-117b961c="" class="qr_text" style="font-size: 1.5rem; color: green; z-index:1">进校 已报备</div>
+                </div>
+                <div data-v-117b961c="" class="info-time" style="position:relative; z-index:1"><b data-v-117b961c="">扫码时间：<b data-v-117b961c="" id="nowDateTimeSpan"></b></b></div>
+                <div data-v-117b961c="" class="dddscene" style="position:relative; z-index:2">
+                    <div data-v-be4c43aa="" data-v-117b961c="" style="width: 1264px; height: 350px;">
+                        <canvas
+                            id="cvs"
+                            width="1264"
+                            height="200"
+                            style="
+                            display: block; 
+                            width: 1264px; 
+                            height: 350px;
+                            touch-action: none;
+                            position: absolute;
+                            bottom:-120px;
+                            opacity: 1"
+                        >
+                        </canvas>
+                    </div>
+                </div>
+                <div data-v-117b961c="" class="stu_info">
+                    <div data-v-117b961c="" class="stu_info_text" style="z-index:1">
+                        <i
+                            data-v-117b961c=""
+                            class="van-icon van-icon-manager"
+                            style="color: rgb(33, 134, 165); font-size: 20px"
+                            ><!----></i
+                        ><span data-v-117b961c="">姓名：Mariah Carey</span>
+                    </div>
+                    <div data-v-117b961c="" class="stu_info_text">
+                        <i
+                            data-v-117b961c=""
+                            class="van-icon van-icon-wechat"
+                            style="color: rgb(33, 134, 165); font-size: 20px"
+                            ><!----></i
+                        ><span data-v-117b961c="">学号：123456</span>
+                    </div>
+                    <div data-v-117b961c="" class="stu_info_text">
+                        <i
+                            data-v-117b961c=""
+                            class="van-icon van-icon-cluster"
+                            style="color: rgb(33, 134, 165); font-size: 20px"
+                            ><!----></i
+                        ><span data-v-117b961c="">学院：All I Want For Christmas Is You</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <script src="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-vendors.1a916d91.js"></script> -->
+        <script>
+            window.addEventListener(
+                'error',
+                function (e) {
+                    var jsLoadedErrorReload = window.sessionStorage.getItem(
+                        'jsLoadedErrorReload' // 跳转的标识，存入sessionStorage。用于不可控情况下，防止一直满足条件，触发死循环性的跳转页面
+                    )
+                    const fileReg = /\/js\/((chunk-vendors)|(app))\.[a-zA-Z0-9]+/
+                    const filename = e.filename || e.target.src || ''
+                    if (jsLoadedErrorReload !== 'true' && filename.match(fileReg)) {
+                        window.sessionStorage.setItem('jsLoadedErrorReload', true) // 满足条件则，存入标识
+                        let url = window.location.href
+                        const timeStr = `timeStr=1648113705694`
+                        url = /\?/.test(url) ? url + '&' + timeStr : url + '?' + timeStr
+                        window.location.replace(url) // 跳转时添加了时间戳
+                    }
+                },
+                true
+            )
+        </script>
+    </body>
+</html>
