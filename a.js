@@ -5,7 +5,7 @@ const loader = new GLTFLoader();
 const scene = new THREE.Scene()
 const cvs = document.querySelector('#cvs')
 // const n = cvs.getContext('2d')
-// n.globalAlpha = 0.5;
+n.globalAlpha = 0.5;
 const camera = new THREE.PerspectiveCamera(
     80, // FOV
     window.innerWidth/window.innerHeight,
