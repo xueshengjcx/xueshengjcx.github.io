@@ -1,0 +1,126 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="robots" content="noindex, nofollow">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+		<meta base="/checkinout/">
+		<script type="importmap">
+            {
+                "imports": {
+                "three": "https://unpkg.com/three@0.139/build/three.module.js"
+                }
+            }
+            </script>
+        <script src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+		<link rel="icon" href="https://xueshengjcx.github.io/favicon.ico"/>
+		<script src="https://threejs.org/build/three.js"></script>
+        <script type="text/JavaScript" src="md5.js"></script>
+        <script defer type="module" src="a.js"></script>
+		<title>学生进出校报备结果页</title>
+		<link href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-vendors.d6751c8d.css" rel="stylesheet">
+		<link href="https://alumni.swupl.edu.cn/checkinout/static/css/mobile.f88ae62e.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="https://alumni.swupl.edu.cn/checkinout/static/css/chunk-4bd0656a.c31568da.css">
+
+		<script type="text/javascript">
+        window.onload = function() {
+            startTime();
+            setSecurityCode();
+        }
+        
+        function setSecurityCode() {
+            h = hex_md5((new Date).getDate() + "asdflkjlkjasdf");
+            var s = h.toString();
+            h = s.substring(s.length - 6).toUpperCase();
+            document.getElementById('securitycode').innerHTML = h;
+        }
+
+        function startTime() {
+            var today = new Date(); //定义日期对象   
+            var yyyy = today.getFullYear(); //通过日期对象的getFullYear()方法返回年    
+            var MM = today.getMonth() + 1; //通过日期对象的getMonth()方法返回年    
+            var dd = today.getDate(); //通过日期对象的getDate()方法返回年     
+            var hh = today.getHours(); //通过日期对象的getHours方法返回小时   
+            var mm = today.getMinutes(); //通过日期对象的getMinutes方法返回分钟   
+            var ss = today.getSeconds(); //通过日期对象的getSeconds方法返回秒   
+            // 如果分钟或小时的值小于10，则在其值前加0，比如如果时间是下午3点20分9秒的话，则显示15：20：09   
+            MM = checkTime(MM);
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            ss = checkTime(ss);
+            document.getElementById('nowDateTimeSpan').innerHTML = yyyy + "-" + MM + "-" + dd + " " + hh + ":" + mm + ":" + ss;
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+	</head>
+
+	<div id="app"><div data-v-4d621fb0="" class="container">
+		<div data-v-4d621fb0="" class="security-code" style="color: rgb(6, 147, 255);"> 校验码：<span data-v-4d621fb0="" id="securitycode"></span></div>
+	<div data-v-4d621fb0="" class="info">注意：校验码动态变化，出入用户校验码一致！</div>
+
+	<!-- 放二维码的 -->
+	<div data-v-4d621fb0="" class="info-btn-box"><img data-v-4d621fb0="" src="wcx.png" class="info-btn" style="display: inline-block;">
+	<!-- 放二维码的 -->
+
+	<div data-v-4d621fb0="" class="qr_text" style="font-size: 1.5rem; color: green;"> 出校 已报备 </div></div>
+	<div data-v-4d621fb0="" class="info-time" style="color: rgb(6, 147, 255);"><b data-v-4d621fb0="">扫码时间：<b data-v-117b961c="" id="nowDateTimeSpan"></b></b></div>
+	<div data-v-117b961c="" class="dddscene" style="position:relative; z-index:2">
+                    <div data-v-be4c43aa="" data-v-117b961c="" style="width: 690px; height: 350px;">
+                        <canvas
+                            id="cvs"
+                            width="690"
+                            height="200"
+                            style="
+                            display: block; 
+                            width: 690px; 
+                            height: 150px;
+                            touch-action: none;
+                            position: absolute;
+                            bottom:-150px;
+		            opacity: 0.25"
+                        >
+                        </canvas>
+                    </div>
+                </div>
+	<div data-v-4d621fb0="" class="stu_info_out">
+		<div data-v-4d621fb0="" class="stu_info">
+			<div data-v-4d621fb0="" class="stu_info_text">
+				<i data-v-4d621fb0="" class="van-icon van-icon-manager" style="color: rgb(33, 134, 165); font-size: 20px;"><!----></i>
+				<span data-v-4d621fb0="">姓名：王修齐</span></div><div data-v-4d621fb0="" class="stu_info_text">
+				<i data-v-4d621fb0="" class="van-icon van-icon-wechat" style="color: rgb(33, 134, 165); font-size: 20px;"><!----></i>
+				<span data-v-4d621fb0="">学号：20210552002151</span></div><div data-v-4d621fb0="" class="stu_info_text">
+				<i data-v-4d621fb0="" class="van-icon van-icon-cluster" style="color: rgb(33, 134, 165); font-size: 20px;"><!----></i>
+				<span data-v-4d621fb0="">学院：新闻传播学院（融媒体学院）</span></div></div>
+				<div data-v-4d621fb0="" style="width: 100%; text-align: center; font-size: 1.4rem;">提示：页面不定期更新，请扫码进出勿使用他人提供的链接！</div></div></div></div>
+				<script src="https://alumni.swupl.edu.cn/checkinout/static/js/chunk-vendors.916e3193.js"></script>
+				<div class="van-toast van-toast--middle van-toast--success" style="z-index: 2014; display: none;"><i class="van-icon van-icon-success van-toast__icon"><!----></i><div class="van-toast__text">提交成功</div></div>
+				<script>window.addEventListener(
+		"error",
+		function (e) {
+			var jsLoadedErrorReload = window.sessionStorage.getItem(
+				"jsLoadedErrorReload"   // 跳转的标识，存入sessionStorage。用于不可控情况下，防止一直满足条件，触发死循环性的跳转页面
+			);
+			const fileReg = /\/js\/((chunk-vendors)|(app))\.[a-zA-Z0-9]+/;
+			const filename = e.filename || e.target.src || "";
+			if (jsLoadedErrorReload !== "true" && filename.match(fileReg)) {
+				window.sessionStorage.setItem("jsLoadedErrorReload", true);  // 满足条件则，存入标识
+				let url = window.location.href;
+				const timeStr = `timeStr=1664355890952`;
+				url = /\?/.test(url) ? url + "&" + timeStr : url + "?" + timeStr;
+				window.location.replace(url); // 跳转时添加了时间戳
+			}
+		},
+		true
+	);</script><div class="van-overlay" style="z-index: 2012; display: none;"></div>
+	<div role="dialog" tabindex="0" class="van-dialog" aria-labelledby="温馨提示：若当日无法返校，请按照请销假制度履行请假手续。" style="z-index: 2013; display: none;">
+	<div class="van-dialog__content van-dialog__content--isolated">
+	<div class="van-dialog__message">温馨提示：若当日无法返校，请按照请销假制度履行请假手续。</div></div>
+	<div class="van-hairline--top van-dialog__footer"><button type="button" class="van-button van-button--default van-button--large van-dialog__confirm">
+	<div class="van-button__content"><span class="van-button__text">确认</span></div></button></div></div></body></html>
